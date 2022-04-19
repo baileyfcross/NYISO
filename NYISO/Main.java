@@ -1,0 +1,79 @@
+
+/**
+ * This class will take in a String argument within args[0].
+ * This String argument will have the mouse, cat, and dog.
+ *
+ * @author (Bailey Cross)
+ * @version (Spring 2022)
+ */
+public class Main
+{
+    public static void main(String args[]){       
+        if(args.length != 2){
+            System.out.println("Usage: args[0]:x string, args[1] j int");
+        }
+        
+        /*
+         * I pull my string and put it all in lowercase so I can have
+         * consistency searching the string.
+         * 
+         * I also take the second args argument and turn that into an int
+         */
+        String x = args[0].toLowerCase();
+        int j = Integer.parseInt(args[1]);
+        int catPos = 0;
+        // My flags to find the letters in the string
+        boolean isC = false;
+        boolean isM = false;
+        boolean isD = false;
+        
+        //This is a char array so I can loop through the string.
+        char[] tempCharArr = x.toCharArray();
+
+        // A for loop to go through the char array of the string x
+        for(int i = 0; i < tempCharArr.length; i++){
+            if(tempCharArr[i] == 'c'){
+                isC = true;
+                catPos = i;
+            }
+            if(tempCharArr[i] == 'd'){
+                isD = true;
+            }
+            if(tempCharArr[i] == 'm'){
+                isM = true;
+            }
+
+            // Will break the loop early if all are found before the end
+            if(isC && isM && isD){
+                break;
+            }
+        }
+        
+        /*
+         * If one of the flags are activated, then that means there
+         * isn't enough players in the game
+         */
+        if((isC == false || isM == false|| isD == false)){
+            System.out.println("boring without all three"); 
+            return;
+        }
+        
+        
+        /*
+         * Once we check that everything is there, we must play the game
+         * 
+         * A cat can jump j number of periods. The cat cannot jump over the
+         * set amount or over the dog.
+         * 
+         * If the mouse is within the jump distance of the cat and not behind
+         * the dog, then the cat catches the mouse.
+         */
+        
+        for(int i = 0; i < tempCharArr.length; i++){
+            System.out.println("got to second for loop");
+            for(int k = catPos; k < j; k++){
+                
+            }
+        }
+    }
+}
