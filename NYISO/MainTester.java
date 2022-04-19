@@ -77,6 +77,7 @@ public class MainTester
         
         System.out.println("Test 6: Expected: Escaped!");
         System.out.println("Returned: " + game.isCaught(t6,j));
+        Spacer();
     }
     
     public static void Spacer(){

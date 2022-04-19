@@ -1,4 +1,3 @@
-
 /**
  * This class will execute a function when an object instance is created of
  * it.
@@ -31,11 +30,11 @@ public class CatDog
         /*
          * I pull my string and put it all in lowercase so I can have
          * consistency searching the string.
-         * 
-         * I also take the second args argument and turn that into an int
          */
+        
         String tempX;
         tempX = x.toLowerCase();
+        
         // My flags to find the letters in the string
         boolean isC = false;
         boolean isM = false;
@@ -43,12 +42,17 @@ public class CatDog
 
         //This is a char array so I can loop through the string.
         char[] tempCharArr = tempX.toCharArray();
-
+        
+        // -1 because if it returns that, then we know there is a problem
         int catPos = -1;
         int mousePos = -1;
 
         // A for loop to go through the char array of the string x
         for(int i = 0; i < tempCharArr.length; i++){
+            
+            /*
+             * This for loop looks for each player in the game
+             */
             if(tempCharArr[i] == 'c'){
                 isC = true;
                 catPos = i;
@@ -74,7 +78,11 @@ public class CatDog
         if((isC == false || isM == false|| isD == false)){
             return"boring without all three"; 
         }      
-
+        
+        /*
+         * This is where we start to check the positions of each player
+         * and the moves that are possible
+         */
         if(mousePos > catPos){           
 
             // If the difference between the m and c is greater than the
@@ -101,10 +109,13 @@ public class CatDog
          * 
          */
         else if(catPos > mousePos){
+            
+            // If the difference between the catPos and the mousePos is
+            // greater than j, then return escape
             if((catPos - mousePos) > j){
                 return "Escaped!";
             }
-
+            
             // This loop should only run if the first if statement 
             // didn't return
             for(int i = catPos; i > mousePos; i--){
