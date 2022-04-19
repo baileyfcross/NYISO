@@ -2,32 +2,36 @@
 /**
  * Write a description of class MainTester here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Bailey Cross)
+ * @version (Spring 2022)
  */
 public class MainTester
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class MainTester
-     */
-    public MainTester()
-    {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public static void main(String args[]){
+        Main game = new Main();
+        // Test Variables
+        
+        String t1,t2,t3,t4,t5;
+        int j;
+        
+        /*
+         * Test 1
+         */
+        t1 = "...c.....m";
+        j = 5;
+        
+        System.out.println("Test1: \tExpected: boring without all three");
+        System.out.println("Returned: " + game.isCaught(t1,j));
+        
+        /*
+         * Test 2
+         */
+        t2 = "...c..D...m";
+        j = 5;
+        
+        System.out.println("Test2: \tExpected: Protected!");
+        System.out.println("Returned: " + game.isCaught(t2,j));
+        
+        
     }
 }
