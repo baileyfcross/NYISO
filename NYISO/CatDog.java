@@ -1,7 +1,7 @@
 /**
  * This class will execute a function when an object instance is created of
  * it.
- * This String argument will have the mouse, cat, and dog.
+ * String argument will have the mouse, cat, and dog.
  * 
  * NOTE: I make the assumption that the user will only ever put three
  * players on the board, 1 cat, 1 mouse, 1 dog.
@@ -32,8 +32,8 @@ public class CatDog
          * consistency searching the string.
          */
         
-        String tempX;
-        tempX = x.toLowerCase();
+        String board;
+        board = x.toLowerCase();
         
         // My flags to find the letters in the string
         boolean isC = false;
@@ -41,26 +41,26 @@ public class CatDog
         boolean isD = false;
 
         //This is a char array so I can loop through the string.
-        char[] tempCharArr = tempX.toCharArray();
+        char[] strCharArr = board.toCharArray();
         
         // -1 because if it returns that, then we know there is a problem
         int catPos = -1;
         int mousePos = -1;
 
         // A for loop to go through the char array of the string x
-        for(int i = 0; i < tempCharArr.length; i++){
+        for(int i = 0; i < strCharArr.length; i++){
             
             /*
              * This for loop looks for each player in the game
              */
-            if(tempCharArr[i] == 'c'){
+            if(strCharArr[i] == 'c'){
                 isC = true;
                 catPos = i;
             }
-            if(tempCharArr[i] == 'd'){
+            if(strCharArr[i] == 'd'){
                 isD = true;
             }
-            if(tempCharArr[i] == 'm'){
+            if(strCharArr[i] == 'm'){
                 isM = true;
                 mousePos = i;
             }
@@ -94,7 +94,7 @@ public class CatDog
             // This loop should only run if the first if statement 
             // didn't return
             for(int i = catPos; i < mousePos; i++){
-                if (tempCharArr[i] == 'd'){
+                if (strCharArr[i] == 'd'){
                     return "Protected!";
                 }
             }
@@ -119,7 +119,7 @@ public class CatDog
             // This loop should only run if the first if statement 
             // didn't return
             for(int i = catPos; i > mousePos; i--){
-                if (tempCharArr[i] == 'd'){
+                if (strCharArr[i] == 'd'){
                     return "Protected!";
                 }
             }
