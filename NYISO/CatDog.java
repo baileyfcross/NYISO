@@ -1,12 +1,21 @@
 
 /**
- * This class will take in a String argument within args[0].
+ * This class will execute a function when an object instance is created of
+ * it.
  * This String argument will have the mouse, cat, and dog.
- *
+ * 
+ * NOTE: I make the assumption that the user will only ever put three
+ * players on the board, 1 cat, 1 mouse, 1 dog.
+ * 
+ * @param {string} x - takes in a string
+ * @param {number} j the amount of spaces the cat can jump
+ * 
+ * @returns {string}
+ * 
  * @author (Bailey Cross)
  * @version (Spring 2022)
  */
-public class Main
+public class CatDog
 {
     /*
      * Once we check that everything is there, we must play the game
@@ -16,6 +25,7 @@ public class Main
      * 
      * If the mouse is within the jump distance of the cat and not behind
      * the dog, then the cat catches the mouse.
+     * 
      */
     public String isCaught(String x, int j){
         /*
@@ -33,10 +43,10 @@ public class Main
 
         //This is a char array so I can loop through the string.
         char[] tempCharArr = tempX.toCharArray();
-        
+
         int catPos = -1;
         int mousePos = -1;
-        
+
         // A for loop to go through the char array of the string x
         for(int i = 0; i < tempCharArr.length; i++){
             if(tempCharArr[i] == 'c'){
