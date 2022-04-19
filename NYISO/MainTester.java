@@ -1,4 +1,3 @@
-
 /**
  * This Class tests the CatDog class
  *
@@ -9,16 +8,16 @@ public class MainTester
 {
     public static void main(String args[]){
         CatDog game = new CatDog();
-        // Test Variables
         
-        String t1,t2,t3,t4,t5,t6;
+        // Test Variables
+        String t1,t2,t3,t4,t5,t6,t7,t8,t9;
         int j;
         
         /*
          * Test 1
-         * Test for 3 players
+         * Test for 3 players with no tokens
          */
-        t1 = "...c.....m";
+        t1 = "........";
         j = 5;
         
         System.out.println("Test 1: Expected: boring without all three");
@@ -27,42 +26,44 @@ public class MainTester
         
         /*
          * Test 2
-         * test for protection and uppercase input
+         * Test for 3 players again with undefined player token
          */
-        t2 = "...c..DM..";
+        t2 = "...f....";
         j = 5;
         
-        System.out.println("Test 2: Expected: Protected!");
+        System.out.println("Test 2: Expected: boring without all three");
         System.out.println("Returned: " + game.isCaught(t2,j));
         Spacer();
         
         /*
          * Test 3
-         * test for caught
+         * Test for 3 players with two tokens
          */
-        t3 = "..c.m.d..";
+        t3 = "...c.....m";
         j = 5;
         
-        System.out.println("Test 3: Expected: Caught!");
+        System.out.println("Test 3: Expected: boring without all three");
         System.out.println("Returned: " + game.isCaught(t3,j));
         Spacer();
         
+        
         /*
          * Test 4
-         * test for backwards protection with fringe mouse
+         * test for protection and uppercase input
          */
-        t4 = ".m...dc....";
+        t4 = "...c..DM..";
         j = 5;
         
         System.out.println("Test 4: Expected: Protected!");
         System.out.println("Returned: " + game.isCaught(t4,j));
         Spacer();
+        
         /*
          * Test 5
-         * Testing backwords catch with different j
+         * test for forward caught
          */
-        t5 = "..m.....c..d..";
-        j = 6;
+        t5 = "..c.m.d..";
+        j = 5;
         
         System.out.println("Test 5: Expected: Caught!");
         System.out.println("Returned: " + game.isCaught(t5,j));
@@ -70,13 +71,46 @@ public class MainTester
         
         /*
          * Test 6
-         * Testing bounds and making sure they are right
+         * test for backwards protection with mouse on the fringe
          */
-        t6 = "m..........cd";
+        t6 = ".m...dc....";
+        j = 5;
+        
+        System.out.println("Test 6: Expected: Protected!");
+        System.out.println("Returned: " + game.isCaught(t6,j));
+        Spacer();
+        
+        /*
+         * Test 7
+         * Testing backwords catch with different jump space
+         */
+        t7 = "..m.....c..d..";
+        j = 6;
+        
+        System.out.println("Test 7: Expected: Caught!");
+        System.out.println("Returned: " + game.isCaught(t7,j));
+        Spacer();
+        
+        /*
+         * Test 8
+         * Testing jump bound and making sure it goes to where its supposed to
+         */
+        t8 = "m..........cd";
         j = 10;
         
-        System.out.println("Test 6: Expected: Escaped!");
-        System.out.println("Returned: " + game.isCaught(t6,j));
+        System.out.println("Test 8: Expected: Escaped!");
+        System.out.println("Returned: " + game.isCaught(t8,j));
+        Spacer();
+        
+        /*
+         * Test 9
+         * Test for 3 players again with 3 unregistered tokens
+         */
+        t9 = "..s....gf..";
+        j = 5;
+        
+        System.out.println("Test 9: Expected: boring without all three");
+        System.out.println("Returned: " + game.isCaught(t9,j));
         Spacer();
     }
     
